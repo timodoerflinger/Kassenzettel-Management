@@ -1,0 +1,14 @@
+
+Also zuerst ein Foto erstellen, bei dem der "PanoramaVoew" schon aktiviert ist
+Damit kann ja auch nur ein kleines Foto geschossen werden
+
+Daher Schritt 1: 
+PanoramaView installieren und einbauen
+
+Schritt 2:
+Panorama Bilder mit Kassenzettel testen und schauen wie diese aussehen
+
+Schritt 3:
+Das erstellte PanoBild von einem langen Kassenzettel versuchen, mittels der OrientierungsHilfe vom ScannerFramework zu optimieren, oder vllt versuchen, mit den Alternativen von Herrn Tanner das Bild aufzuwerten
+
+

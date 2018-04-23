@@ -1,0 +1,11 @@
+
+
+
+Apple führt mittlerweile wohl selber ein Framework zum Text aus Bildern erkennen
+Das vielleicht mal anschauen, da das SwiftoOCR wohl Mühe hat, mehrere Zeilen zu erkennen, was für meine Anforderungen natürlich gegeben sein müssen
+
+
+https://developer.apple.com/documentation/vision
+
+
+

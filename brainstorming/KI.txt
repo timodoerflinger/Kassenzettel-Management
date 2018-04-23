@@ -1,0 +1,6 @@
+Gibt es eine KI die mit Daten aus einer Datenbank arbeitet?
+
+Dass ich eine KI einbaue, die mit den Kassenzetteln lernt bzw. mit den Produkten auf den Kassenzetteln
+Und daraus dann immer besser die Kategorierungs-Zuteilung schaffen zu können
+
+Aber vielleicht sprengt das den Rahmen, das mal abklären/anschauen, ob es sowas überhaupt gibt

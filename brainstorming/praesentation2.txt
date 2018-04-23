@@ -1,0 +1,22 @@
+<Protokoll:
+
+Herr Tanner:
+vllt ein Rest-Service als weitere alternative festhalten
+
+oder vllt OpenCV eine funktionsfähige Version
+oder "SciKit Image"
+
+
+
+für die synomyme 
+eine Map mit Keys und Value erstellen
+
+
+
+journal auf dem github, auf dem ich nachführe, was ich wann immer gemacht habe, damit der email verkehr etwas eingeschränkt wird
+
+
+
+Groben Zeitplan erstellen bzw mit dem datenbakn aktualiseren (Excel)
+
+und die benotungs-raster anschauen und überlegen, wie das aufgeteilt werden

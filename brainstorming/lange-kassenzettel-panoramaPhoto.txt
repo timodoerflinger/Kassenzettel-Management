@@ -1,0 +1,5 @@
+
+PanoramaView für Swift, das auch "Upside Down" View enthalten hat (sieht interessant aus):
+https://github.com/robbykraft/Panorama
+
+

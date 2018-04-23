@@ -1,0 +1,36 @@
+
+
+
+Software, die einen unterstützen kann und sicher für mein Projekt hilfreich wäre:
+
+
+
+fastlane ist eine mögliche Software, zum eine App in eine Beta-Version zu setzen und von Testern testen zu lassen und um eine App einfach mit allen nötigen Mitteln in den Appstore zu bringen:
+https://fastlane.tools
+
+
+eine weitere gute Möglichkeite wäre Jenkins, wie von Herrn Tanner empfholen
+Ist eine Alternative zu Gitlab
+
+Hier eine Anleitung wie man es installiert:
+https://medium.com/@cherrmann.com/continuous-integration-and-delivery-for-ios-with-jenkins-and-fastlane-part-1-3b17f1901a73
+
+Besser wäre es aber, wenn ich es selber bzw. nach einer Anleitung von Jenkins selber installieren könnte
+
+
+SonarSwift
+
+Ist eine Alternative zu "BugFind", aber für Swift-Code halt, damit könnte ich dann meinen Code nach Fehlerhaftem Code-Aufbau checken
+https://docs.sonarqube.org/display/PLUG/SonarSwift
+oder
+https://www.sonarsource.com/products/codeanalyzers/sonarswift.html
+
+
+Bzw. SonarQube Plugin for Swift:
+https://github.com/Backelite/sonar-swift
+sieht auch gut aus
+muss ich mir also genauer anschauen
+
+
+
+

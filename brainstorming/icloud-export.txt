@@ -1,0 +1,11 @@
+
+Beim iCloud-Export muss ich dann beachten, dass wenn die App bzw. die Daten der App wirklich mal verloren gehen, dass man vllt die exportierten Kassenzettel dann wieder in die neu installierte App "importieren" kann
+
+Also vllt beim export die dazugehöirgen Daten als Metadaten oder so dazu hochladen oder die Metadaten dem Bild anhängen?
+Sonst muss in der App für den Benutzer vermerkt werden, dass bei einem Export bzw. Upload der Fotos in die iCloud alle extra gesetzten Daten wie z.B. Kommentare oder Kategorie-Zuweisungen verloren gehen
+
+
+https://www.youtube.com/watch?v=4CbcMZOSmEk
+Bei diesem Video redet er bei Minute 6:30 von dem Info Teil, wenn ich es richtig verstehe, kann man da verschiedene Informationen zu dem Bild anhängen bzw. auslesen? Das wäre dann vllt eine Möglichkeit, um die übrigen Informationen des Bildes beim Export/Upload nicht zu verlieren
+Mal genauer anschauen
+

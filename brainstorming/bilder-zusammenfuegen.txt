@@ -1,0 +1,13 @@
+
+Vielleicht anstatt ein Panoramabild von langen Kassenzetteln, können vielleicht meherere Bilder von langen Kassenzetteln erstellt werden und diese dann automatisch zusammengefügt werden
+
+https://www.photostitcher.com
+
+
+https://www.leadtools.com/sdk/image-processing/combine
+
+
+
+https://www.leadtools.com/sdk/ocr
+
+

@@ -1,0 +1,9 @@
+
+
+
+
+https://github.com/ldiqual/tesseract-ios
+
+Da wird von verschiedenen Sprachen gesprochen, vielleicht erhöht das noch den Output wenn ich das auf Deutsch ändern kann, wenn es eventuell gerade per default für Englisch eingestellt ist
+
+

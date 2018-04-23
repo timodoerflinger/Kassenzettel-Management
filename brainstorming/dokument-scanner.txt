@@ -1,0 +1,21 @@
+
+
+Eine Liste mit verschiedenen passenden Seiten für das scanning:
+https://github.com/adius/awesome-scanning#ios
+
+
+
+
+Beitrag wie man soetwas selber programmieren kann:
+https://www.pyimagesearch.com/2014/09/01/build-kick-ass-mobile-document-scanner-just-5-minutes
+
+
+Vllt, aber wohl eher weniger interessant:
+https://github.com/Michaelvilleneuve/react-native-document-scanner
+
+
+
+
+
+
+

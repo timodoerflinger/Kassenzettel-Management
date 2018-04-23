@@ -1,0 +1,20 @@
+
+Eine Evaluierung der beiden OCR-Frameworks durchführen (also zwischen SwiftOCR und Tesseract), dafür vllt zwei kleine Test-Apps erstellen, in beiden jeweils OCR und Tesseract einbauen und beide Frameworks mit den gleichen Bildern (aber mit verschiedenen Qualitäten (Licht, Papier-Struktur (verknittert))) durchführen
+
+
+SwiftOCR:  https://github.com/garnele007/SwiftOCR
+
+
+Umfrage könnte ich noch erarbeiten, wie leute mit Kassenzetteln umgehen
+
+
+Einen Entwickler-Account von Apple nötig, 
+Ohne Entwickler-Account kann die App als Test nicht direkt auf dem iPhone getestet werden, sondern nur virtuell in der Entwicklungsumgebung
+Fotos machen von Kassenzettel einfacher so am Handy direkt
+
+Problem mit langen Kassenzetteln (Panorama-Foto-Modus ?, wohl eher nicht)
+
+Lizenzierung der Frameworks SwiftOCR und Tesseract genau prüfen
+
+
+

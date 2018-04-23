@@ -1,0 +1,9 @@
+
+
+Die Daten, die die OCR-Library ausliest, wird vllt am besten in eine Datenbank übertragen.
+
+und vllt kann ich die kategorisierung lernfähig machen
+also ich meine damit, nach dem ersten Kassenzettel von Migros wird gefragt, welche Kategorie es ist, und das merkt sich die App dann und alle weiteren Kassenzettel von Migros werden dann automatisch in die vorige Kategorie übertrage
+Das muss dann aber geändert werden können bzw vllt sogar abgestellt werden (also in den Einstellungen)
+
+Allgemein, wie kann man Einstellungen setzen, damit diese dann in der App (an jeder Stelle der App) auch ziehen

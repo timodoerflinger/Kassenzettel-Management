@@ -1,0 +1,13 @@
+
+
+http://www.maclife.de/ratgeber/crashkurs-app-entwicklung-iphone-ipad-10096947.html
+
+
+
+Zitat:
+"Die App auf einem iOS-Gerät starten
+
+Verbinden Sie Ihr iOS-Gerät mittels des mitgelieferten Kabels mit Ihrem Mac. Um die App zu starten, müssen Sie zunächst Ihre Apple-ID in den Einstellungen von Xcode hinterlegen. Wählen Sie dazu im Menü „Xcode > Preferences > Accounts“ und klicken Sie unten links auf das kleine Plus-Symbol. Selektieren Sie nun „Add Apple ID“ und geben Sie im nun erscheinenden Fenster Ihre Apple-ID sowie das dazugehörige Passwort ein. Daraufhin wird automatisch ein Zertifikat erzeugt, das ebenfalls für die Ausführung benötigt wird. Stellen Sie nun sicher, dass im linken Bereich von Xcode der Projektnavigator aktiviert ist, indem Sie oben links auf das Ordnersymbol klicken. Wählen Sie nun den obersten Eintrag der Baumansicht (Dollarkurs) und „Targets > Dollarkurs“ sowie in den anschließend erscheinenden Projekteinstellungen den Reiter „General“. Unter der Kategorie „Signing“ können Sie nun mittels der Auswahlbox „Team“ Ihre Apple-ID wählen.
+
+Klicken Sie als nächstes in der linken Hälfte der Titelleiste des Xcode-Fensters auf die Auswahlfläche neben dem Namen der App und wählen Sie Ihr iOS-Gerät als Ausführungsziel aus. Wenn Sie nun die App starten, erscheint zunächst eine Fehlermeldung. Dies ist jedoch nicht weiter tragisch, denn es fehlt nur noch eine letzte Einstellung an Ihrem iOS-Gerät. Öffnen Sie die App „Einstellungen“ und wechseln Sie zur Kategorie „Allgemein > Profile & Geräteverwaltung“. Klicken Sie dort auf den Eintrag unter „Entwickler-App“ und schließlich auf „ID Vertrauen“. Nun ist alles vorbereitet und ein Klick auf die Ausführen-Schaltfläche (kleiner Pfeil oben links in der Titelleiste) startet die App auf Ihrem iOS-Gerät. Da noch keine Benutzeroberfläche gestaltet wurde, bleibt es an dieser Stelle jedoch zunächst einmal bei einem leeren, weißen Bild."
+

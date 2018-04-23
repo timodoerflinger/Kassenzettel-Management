@@ -1,0 +1,31 @@
+
+
+Integrierte SQL-Datenbank für iOS: Interbase ToGo:
+http://www.app-entwickler-verzeichnis.de/programmierung/23-ios/396-integrierte-sql-datenbank-fuer-ios-interbase-togo
+
+
+https://firebase.google.com/docs/database/ios/start
+
+
+(Document orientiert: (NoSQL)):
+https://github.com/couchbase/couchbase-lite-ios
+
+
+REALM:
+https://code.tutsplus.com/tutorials/getting-started-with-realm-database-for-ios--cms-29018
+
+
+Apple Core Data:
+
+
+SQLite
+
+
+iOS - Cloudant NoSQL DB API
+https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/7.1/data/working-with-cloudant-nosql-db-api/ios/
+
+
+
+
+
+
