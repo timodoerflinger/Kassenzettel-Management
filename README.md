@@ -2,6 +2,7 @@
 
 Das ist das github-Repository meiner Diplomarbeit
 
+Beschreibung:
 In meiner Diplomarbeit erstelle ich eine App zur Kassenzettel-Verwaltung.
 Für meinen Auftraggeber und mich persönlich sind die Kassenzettel verlorene
 Daten, ausser man verwendet Sie zur persönlichen Analyse bzw. zum
@@ -20,6 +21,7 @@ können für eine sichere Aufbewahrung in die persönliche iCloud hochgeladen
 werden. Diese können dann natürlich bei einem Verlust der App oder
 des Handys später noch zur Verfügung stehen oder auch wieder in die App
 integriert werden. 
+
 
 swiftocrtest:
 Dies ist eine Test-App, in der das "SwiftOCR"-Framework eingebaut wurde. Das Framework ist sehr gut, beschreibt sich selbst aber als Framwork für einzeiliges Auslesen und ist daher eher unpassend für das Ziel dieses Projekts.
