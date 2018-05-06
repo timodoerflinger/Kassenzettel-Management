@@ -1,0 +1,15 @@
+
+Folgendes im Google eingeben "image processing to improve ocr"
+
+Gibt unter anderem diesen Link, der beschreibt, was am Bild verändert werden kann, damit das ocr verbessert wird:
+https://stackoverflow.com/questions/9480013/image-processing-to-improve-tesseract-ocr-accuracy
+
+
+Der folgende Link beschreibt genau, was man machen kann damit es bei Tesseract besser wird, und dieser Link ist sogar erst vor 21 Tagen das letzte Mal editiert worden, das heisst es könnte relativ aktuell sein:
+https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality
+
+
+
+
+
+
