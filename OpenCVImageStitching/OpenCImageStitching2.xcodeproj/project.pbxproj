@@ -1,0 +1,401 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2561569F208CA8E200DC15E2 /* stitching.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2561569E208CA8E200DC15E2 /* stitching.cpp */; };
+		256156A4208CB17200DC15E2 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 256156A1208CB17200DC15E2 /* UIImage+OpenCV.mm */; };
+		256156A5208CB17200DC15E2 /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256156A2208CB17200DC15E2 /* UIImage+Rotate.m */; };
+		258820C9208C86660048585E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258820C8208C86660048585E /* AppDelegate.swift */; };
+		258820CB208C86660048585E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258820CA208C86660048585E /* ViewController.swift */; };
+		258820CE208C86660048585E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 258820CC208C86660048585E /* Main.storyboard */; };
+		258820D0208C86670048585E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 258820CF208C86670048585E /* Assets.xcassets */; };
+		258820D3208C86670048585E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 258820D1208C86670048585E /* LaunchScreen.storyboard */; };
+		258820E3208C871D0048585E /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258820DB208C868C0048585E /* opencv2.framework */; };
+		258820E4208C87290048585E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258820DD208C86C40048585E /* UIKit.framework */; };
+		258820E5208C873C0048585E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258820DF208C86CE0048585E /* Foundation.framework */; };
+		258820E6208C87420048585E /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258820E1208C86DE0048585E /* CoreImage.framework */; };
+		258820EA208C88130048585E /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 258820E9208C88130048585E /* OpenCVWrapper.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2561569D208CA8E200DC15E2 /* stitching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stitching.h; sourceTree = "<group>"; };
+		2561569E208CA8E200DC15E2 /* stitching.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stitching.cpp; sourceTree = "<group>"; };
+		256156A0208CB17200DC15E2 /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
+		256156A1208CB17200DC15E2 /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
+		256156A2208CB17200DC15E2 /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
+		256156A3208CB17200DC15E2 /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
+		258820C5208C86660048585E /* OpenCImageStitching2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenCImageStitching2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		258820C8208C86660048585E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		258820CA208C86660048585E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		258820CD208C86660048585E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		258820CF208C86670048585E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		258820D2208C86670048585E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		258820D4208C86670048585E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		258820DB208C868C0048585E /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../Downloads/opencv2.framework; sourceTree = "<group>"; };
+		258820DD208C86C40048585E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		258820DF208C86CE0048585E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		258820E1208C86DE0048585E /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		258820E7208C88120048585E /* OpenCImageStitching2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenCImageStitching2-Bridging-Header.h"; sourceTree = "<group>"; };
+		258820E8208C88130048585E /* OpenCVWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
+		258820E9208C88130048585E /* OpenCVWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
+		258820EB208C88C00048585E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		258820C2208C86660048585E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				258820E6208C87420048585E /* CoreImage.framework in Frameworks */,
+				258820E5208C873C0048585E /* Foundation.framework in Frameworks */,
+				258820E4208C87290048585E /* UIKit.framework in Frameworks */,
+				258820E3208C871D0048585E /* opencv2.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		258820BC208C86660048585E = {
+			isa = PBXGroup;
+			children = (
+				258820C7208C86660048585E /* OpenCImageStitching2 */,
+				258820C6208C86660048585E /* Products */,
+				258820DA208C868B0048585E /* Frameworks */,
+				258820E7208C88120048585E /* OpenCImageStitching2-Bridging-Header.h */,
+			);
+			sourceTree = "<group>";
+		};
+		258820C6208C86660048585E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				258820C5208C86660048585E /* OpenCImageStitching2.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		258820C7208C86660048585E /* OpenCImageStitching2 */ = {
+			isa = PBXGroup;
+			children = (
+				256156A0208CB17200DC15E2 /* UIImage+OpenCV.h */,
+				256156A1208CB17200DC15E2 /* UIImage+OpenCV.mm */,
+				256156A3208CB17200DC15E2 /* UIImage+Rotate.h */,
+				256156A2208CB17200DC15E2 /* UIImage+Rotate.m */,
+				258820EB208C88C00048585E /* PrefixHeader.pch */,
+				258820E8208C88130048585E /* OpenCVWrapper.h */,
+				258820E9208C88130048585E /* OpenCVWrapper.mm */,
+				258820C8208C86660048585E /* AppDelegate.swift */,
+				258820CA208C86660048585E /* ViewController.swift */,
+				258820CC208C86660048585E /* Main.storyboard */,
+				258820CF208C86670048585E /* Assets.xcassets */,
+				258820D1208C86670048585E /* LaunchScreen.storyboard */,
+				258820D4208C86670048585E /* Info.plist */,
+				2561569E208CA8E200DC15E2 /* stitching.cpp */,
+				2561569D208CA8E200DC15E2 /* stitching.h */,
+			);
+			path = OpenCImageStitching2;
+			sourceTree = "<group>";
+		};
+		258820DA208C868B0048585E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				258820E1208C86DE0048585E /* CoreImage.framework */,
+				258820DF208C86CE0048585E /* Foundation.framework */,
+				258820DD208C86C40048585E /* UIKit.framework */,
+				258820DB208C868C0048585E /* opencv2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		258820C4208C86660048585E /* OpenCImageStitching2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 258820D7208C86670048585E /* Build configuration list for PBXNativeTarget "OpenCImageStitching2" */;
+			buildPhases = (
+				258820C1208C86660048585E /* Sources */,
+				258820C2208C86660048585E /* Frameworks */,
+				258820C3208C86660048585E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenCImageStitching2;
+			productName = OpenCImageStitching2;
+			productReference = 258820C5208C86660048585E /* OpenCImageStitching2.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		258820BD208C86660048585E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = Timo;
+				TargetAttributes = {
+					258820C4208C86660048585E = {
+						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
+					};
+				};
+			};
+			buildConfigurationList = 258820C0208C86660048585E /* Build configuration list for PBXProject "OpenCImageStitching2" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 258820BC208C86660048585E;
+			productRefGroup = 258820C6208C86660048585E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				258820C4208C86660048585E /* OpenCImageStitching2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		258820C3208C86660048585E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				258820D3208C86670048585E /* LaunchScreen.storyboard in Resources */,
+				258820D0208C86670048585E /* Assets.xcassets in Resources */,
+				258820CE208C86660048585E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		258820C1208C86660048585E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				258820CB208C86660048585E /* ViewController.swift in Sources */,
+				258820C9208C86660048585E /* AppDelegate.swift in Sources */,
+				256156A5208CB17200DC15E2 /* UIImage+Rotate.m in Sources */,
+				258820EA208C88130048585E /* OpenCVWrapper.mm in Sources */,
+				2561569F208CA8E200DC15E2 /* stitching.cpp in Sources */,
+				256156A4208CB17200DC15E2 /* UIImage+OpenCV.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		258820CC208C86660048585E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				258820CD208C86660048585E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		258820D1208C86670048585E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				258820D2208C86670048585E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		258820D5208C86670048585E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		258820D6208C86670048585E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		258820D8208C86670048585E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 443835D258;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/OpenCImageStitching2/PrefixHeader.pch";
+				INFOPLIST_FILE = OpenCImageStitching2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = diplom.OpenCImageStitching2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenCImageStitching2-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		258820D9208C86670048585E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 443835D258;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/OpenCImageStitching2/PrefixHeader.pch";
+				INFOPLIST_FILE = OpenCImageStitching2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = diplom.OpenCImageStitching2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenCImageStitching2-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		258820C0208C86660048585E /* Build configuration list for PBXProject "OpenCImageStitching2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				258820D5208C86670048585E /* Debug */,
+				258820D6208C86670048585E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		258820D7208C86670048585E /* Build configuration list for PBXNativeTarget "OpenCImageStitching2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				258820D8208C86670048585E /* Debug */,
+				258820D9208C86670048585E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 258820BD208C86660048585E /* Project object */;
+}
