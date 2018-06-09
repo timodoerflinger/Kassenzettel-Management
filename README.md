@@ -1,6 +1,6 @@
 # kassenzettel-management
 
-Das ist das github-Repository meiner Diplomarbeit
+Das ist das github-Repository des IT-Projekts des 6. Semesters der hf-ict
 
 Beschreibung:
 In meiner Diplomarbeit erstelle ich eine App zur Kassenzettel-Verwaltung.
@@ -15,13 +15,8 @@ ausgelesen und mit einem gesetzten monatlichen Budget verrechnet werden.
 Dies soll dann auch kategorisiert werden können. Daraus ist ersichtlich, was
 in dem laufenden Monat bereits in den verschiedenen Kategorien ausgegeben
 wurde. Die Kategorien können jeweils individuell erstellt werden.
-Auch das dauerhafte Ablegen dieser Abbilder von Kassenzetteln soll für
-gewisse Garantiefälle zur Verfügung gestellt werden. Diese Garantie-Kassenzettel
-können für eine sichere Aufbewahrung in die persönliche iCloud hochgeladen
-werden. Diese können dann natürlich bei einem Verlust der App oder
-des Handys später noch zur Verfügung stehen oder auch wieder in die App
-integriert werden. 
 
+Dies ist ein IT-Projekt, welches die Grundlage für die Diplomarbeit ist. In diesem Projekt geht es um das Auslesen von Kassenzettel-Abbildern und den passenden Bildaufbereitungs-Funktionen und noch weitere spannende Pnukte. 
 
 swiftocrtest:
 Dies ist eine Test-App, in der das "SwiftOCR"-Framework eingebaut wurde. Das Framework ist sehr gut, beschreibt sich selbst aber als Framwork für einzeiliges Auslesen und ist daher eher unpassend für das Ziel dieses Projekts.
@@ -30,4 +25,7 @@ tesseractTest:
 Dies ist eine Test-App, in der das "Tesseract OCR iOS"-Framwork eingebaut wurde. Das Framework ist sehr gut bei mehrzeiligem Auslesen und damit passend für dieses Projekt. Das Auslesen funktioniert nicht zu 100%. Doch die Auslese-Qualität kann mit gewissen Funktionen von Tesseract oder auch mit anderen Bildbearbeitungs-Funktionen noch aufgewertet werden. 
 
 kassenzettel-management:
-Dies ist die Master-App, die die Basis-App mit der Test-App von Tesseract und S
+Dies ist die Master-App, die die Basis-App mit der Test-App von Tesseract und OpenCVImageStitching vereint. 
+
+Dokumentation:
+Die Abschluss-Dokumentation ist mit Latex erstellt worden. Die daraus generierte PDF ist hier unter dem Namen "dokumentation-it-projekt-6-semester-timo-doerflinger.pdf" zu finden. Die PDF-Datei mit den entsprechenden Latex-Dokumenten ist im Ordner dokumentation zu finden
