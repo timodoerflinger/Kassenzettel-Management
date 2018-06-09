@@ -1,0 +1,25 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}Einleitung}{3}{section.1}
+\contentsline {section}{\numberline {2}Projekt-Management}{4}{section.2}
+\contentsline {section}{\numberline {3}Basis der App}{4}{section.3}
+\contentsline {section}{\numberline {4}SwiftOCR}{5}{section.4}
+\contentsline {section}{\numberline {5}Tesseract}{6}{section.5}
+\contentsline {subsection}{\numberline {5.1}Optionen von Tesseract-OCR-iOS}{8}{subsection.5.1}
+\contentsline {section}{\numberline {6}git}{9}{section.6}
+\contentsline {subsection}{\numberline {6.1}git lfs}{9}{subsection.6.1}
+\contentsline {section}{\numberline {7}Festgestellte Probleme}{11}{section.7}
+\contentsline {subsection}{\numberline {7.1}Die richtige Perspektive}{11}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Nach einem Grosseinkauf}{12}{subsection.7.2}
+\contentsline {section}{\numberline {8}OpenCV und Stitching}{12}{section.8}
+\contentsline {subsection}{\numberline {8.1}OpenCV}{12}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Stitching}{15}{subsection.8.2}
+\contentsline {section}{\numberline {9}Master App kassenzettel-management}{18}{section.9}
+\contentsline {section}{\numberline {10}Bildaufbereitungs-Funktionen - OpenCV}{18}{section.10}
+\contentsline {section}{\numberline {11}Weitere verwendete Software}{20}{section.11}
+\contentsline {subsection}{\numberline {11.1}Pods/CocoaPods}{20}{subsection.11.1}
+\contentsline {subsection}{\numberline {11.2}Homebrew}{20}{subsection.11.2}
+\contentsline {section}{\numberline {12}Mock-Up}{21}{section.12}
+\contentsline {section}{\numberline {13}Aufgaben f\"ur die zweite Phase - Diplomarbeit}{23}{section.13}
+\contentsline {section}{\numberline {14}Was ich gelernt habe}{24}{section.14}
+\contentsline {section}{\numberline {15}Quellenverzeichnis}{24}{section.15}
+\contentsline {section}{\numberline {16}Bilderverzeichnis}{25}{section.16}

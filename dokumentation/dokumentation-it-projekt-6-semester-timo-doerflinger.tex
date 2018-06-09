@@ -1,0 +1,542 @@
+\documentclass[12pt,twoside,a4paper]{article}
+
+%nach folgender Quelle wurden die kommenden Dokumenteinstellungen gesetzt:
+%http://latex.hpfsc.de/content/latex_tutorial/umlaut_deutsch/
+
+% deutsche Silbentrennung
+\usepackage[ngerman]{babel}
+% wegen deutschen Umlauten
+\usepackage[ansinew]{inputenc}
+
+
+\usepackage{graphicx}
+\usepackage{color}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+
+\usepackage{listings}
+\lstset{
+language=C,
+commentstyle=\color{mygreen},
+numbers=left,
+tabsize=2,	
+frame=single
+}
+
+
+\usepackage{subfigure}
+\usepackage{hyperref}
+
+\begin{document}
+
+
+%Titelseite (nach folgender Quelle im Wikipedia nachgebaut: https://de.wikibooks.org/wiki/LaTeX/_Eine_Titelseite_erstellen): 
+\begin{titlepage}
+	\centering
+	%\includegraphics[width=0.15\textwidth]{example-image-1x1}\par\vspace{1cm}
+	{\scshape\LARGE hf-ict \par}
+	\vspace{1cm}
+	{\scshape\Large IT-Projekt des 6. Semesters\par}
+	\vspace{1.5cm}
+	{\huge\bfseries Kassenzettel-Management App\par}
+	\vspace{2cm}
+	{\Large\itshape Timo Dörflinger\par}
+	
+
+% Bottom of the page
+	{\large \today\par}
+\end{titlepage}
+
+
+
+% Inhaltsverzeichnis anzeigen
+\tableofcontents
+% Kapitel soll auf nächster Seite beginnen
+\newpage
+
+
+\section{Einleitung} 
+
+In meiner Diplomarbeit erstelle ich eine App zur Kassenzettel-Verwaltung. Für meinen Auftraggeber und mich persönlich sind die Kassenzettel verlorene Daten, ausser man verwendet Sie zur persönlichen Analyse bzw. zum Führen eines Haushaltsbuchs. Daher erstelle ich in meiner Diplomarbeit eine iOS-App, mit welcher ein Kassenzettel fotografiert werden kann. Aus diesem erstellten Abbild werden dann gewisse Werte bzw. Daten mit Hilfe eines bereits bestehenden OCR-Frameworks ausgelesen und zur weiteren Verarbeitung zwischengespeichert. Hier kann also unter anderem der Gesamtbetrag ausgelesen und mit einem gesetzten monatlichen Budget verrechnet werden. Dies soll dann auch kategorisiert werden können. Daraus ist ersichtlich, was in dem laufenden Monat bereits in den verschiedenen Kategorien ausgegeben wurde. Die Kategorien können jeweils individuell erstellt werden. 
+
+Der Designaufbau bzw. die Benutzeroberfläche wird in der ersten Phase nicht beachtet. Hier wird aber mit dem Auftraggeber mit einem Mockup(Fussnote) ein Design erstellt, welches dann in der zweiten Phase umgesetzt werden soll. 
+
+Beide Apps setzen auf die selbe Basis. Mit der Basis der App kann ein Foto erstellt oder ein bereits erstelltes Foto aus der Fotobibliothek ausgewählt werden. 
+Für die OCR-Funktion, also das Auslesen des Textes aus den Bildern, sind zuvor zwei verschiedene OCR-Frameworks ausgewählt worden. Allerdings wollte ich mich nicht nur nach den Dokumentationen der Frameworks entscheiden. Daher habe ich entschieden, zwei Test-Apps aufzubauen. 
+
+Nach der Entscheidung bin ich auf diverse Probleme mit den Kassenzetteln gestossen. Wird ein Kassenzettel nicht genau vertikal und horizontal ausgerichtet abfotografiert, entsteht ein verzerrtes Bild, das von dem OCR nicht oder nur schlecht ausgelesen werden kann. Hier habe ich diverse Funktionen gefunden, mit denen diese Probleme gelöst werden können. 
+
+Des Weiteren können die erstellten Abbilder der Kassenzettel mit weiteren Bildaufbereitungs-Funktionen weiter bearbeitet werden, sodass die Ausleserate steigt. So kann nun ziemlich erfolgreich der bezahlte Endbetrag ausgelesen werden. Dieser steht somit für die weitere Verarbeitung in der zweiten Phase der Diplomarbeit bereit. 
+\newpage
+
+\section{Projekt-Management}
+Für dieses Projekt hatte ich für das Management die Hermes5-Management-Methode ausgewählt. Diese Methode hatten wir im 5. Semester kennengelernt und auch bereits in einem Projekt im gleichen Semester erfolgreich anwenden können. In dem Projekt im 5. Semester habe ich die Hermes5-Methode zu schätzen gelernt. Es werden zwar viele Dokumente verlangt, jedoch bringt Hermes5 auch einen hilfreichen roten Faden mit sich. Dieser kann einen erfolgreich durch ein Projekt führen. 
+
+Zu Beginn des Projekts lief es auch gut mit Hermes5. Der Projektauftrag für den Auftraggeber konnte schnell nach dem Hermes5-Template erstellt werden. Und auch die Planungsphase hat gut funktioniert, wobei ich hier bezüglich dem zeitlichen Rahmen viele Dokumente nicht erstellen konnte. Als ich aber dann in der Realisierungsphase Probleme erkannt hatte, bin ich wieder zurück in die Planungsphase um diese Probleme zu lösen. Das hat mich völlig aus dem Management geworfen. 
+
+Ich empfinde Hermes5 immer noch als eine hervorragende Projektmanagement-Methode. Hermes5 ist für reine Software-Projekte aber nicht so geeignet. Daher werde ich die zweite Phase der Diplomarbeit mit Scrum managen. 
+
+\section{Basis der App}
+
+Für die Evaluierung der beiden OCR-Frameworks habe ich eine Basis-App erstellt. Auf dieser können dann die beiden Frameworks eingebaut und getestet werden. 
+
+Die iOS App wird mit einem SingleView-Template aufgebaut. Diesem Template habe ich einen Button hinzugefügt. Dieser Button hat zwei Optionen. Mit der ersten Option kann ein Bild erstellt werden, es wird also die Kamera-App geöffnet. Mit der zweiten Option wird die Bildergalerie geöffnet und es kann ein bereits erstelltes Foto ausgewählt werden. Diese zwei Button-Optionen sind nach eine YouTube-Tutorial von Brian Advent nachgebaut worden. Zu dem Button habe ich ein ImageView hinzugefügt. In diesem ImageView wird das erstellte oder ausgewählte Bild angezeigt. Dieses ImageView soll nur in dieser Projektphase bestehen. Es dient zur Anschauung des Bildes, bevor es von dem OCR-Framework ausgelesen wird. Unter dem ImageView befindet sich noch ein TextView, in dem der ausgelesene Text dargestellt wird. 
+
+
+
+\section{SwiftOCR}
+
+
+SwiftOCR ist ein sehr starkes OCR, welches auf einer lernfähigen Basis aufbaut. Dies ist in dieser Hinsicht interessant, als das SwiftOCR besonders bei Fotos mit verschiedenen Schatten verwendet werden kann. Das ist für das Ziel dieses Projekts besonders interessant, da die App für das Auslesen von Kassenzetteln ausgerichtet ist. 
+SwiftOCR verspricht hier also, den Text einwandfrei auslesen zu können, trotz Knitterfalten und damit einhergehender unterschiedlicher Schatten. 
+
+Das Framework war zu Beginn relativ schwierig in das Swift-Projekt einzubinden. Das Framework baut auf einem weiteren Framework, dem GPUImage-Framework, auf. Dieses ist bereits in dem SwiftOCR-Framework enthalten. Um SwiftOCR also einbinden und verwenden zu können, musste das GPUImage-Framework auch in das Projekt integriert werden. 
+
+Das SwiftOCR Framework ist auf der github-Seite(Fussnote mit der Quelle) zu finden. In dieser Repository ist auch ein Textfile, welches beschreibt, wie das Framework in das eigene Projekt eingebaut werden kann. 
+
+Nun kommt es für einen erfolgreichen Gebrauch des SwiftOCR darauf an, die zwei richtigen Ordner von SwiftOCR und GPUImage in der richtigen Reihenfolge auszuwählen, da es sonst nicht funktioniert. Denn nach der Integration des Framework-Ordners erscheinen in der Projekt-Struktur in XCode mehrere Ordner für SwiftOCR und GPUImage. Dieser Prozess hat mich sehr viel Zeit gekostet, da ich nach drei eigenen fehlgeschlagenen Versuchen die richtigen Ordner zu finden, externe Hilfen verwenden musste. Auf einer langen Suche nach einer Anleitung habe ich dann noch zwei weitere Versuche mit einer vielversprechenden Anleitung benötigt, bis die Framework-Umgebung richtig eingebunden war. Die Integration des Codes war dann kein Problem, da SwiftOCR lediglich fünf Zeilen Code braucht. 
+
+
+\begin{lstlisting}
+import SwiftOCR
+
+let swiftOCRInstance = SwiftOCR()
+    
+swiftOCRInstance.recognize(myImage) 
+{ 
+	recognizedString in print(recognizedString)
+}
+\end{lstlisting}
+
+Auch der erste Test mit den bereits mitgelieferten Test-Bildern war erfolgreich und für mich sehr vielversprechend. An diesem Punkt dachte ich sogar bereits, ich habe mich bereits für eine Option entschieden, ohne Tesseract bisher getestet zu haben. 
+
+Leider kommt es jedoch häufig anderst als zuerst gedacht. Es stellte sich nach weiteren Tests mit Kassenzettel-Bildern jedoch leider heraus, das SwiftOCR nicht mit Text bzw. mit mehrzeiligem Text umgehen kann. Nach wiederholtem Durchlesen der Beschreibung von SwiftOCR hatte ich dann auch im Kleingeschriebenen gefunden, dass SwiftOCR lediglich für einzeiligen Text gemacht wurde. Dieser Stand kann auch nicht durch weitere Einstellungen geändert werden. 
+
+Mein Fazit von SwiftOCR: Wenn die Beschreibung wirklich genau gelesen wird und damit sicher ist, dass SwiftOCR für den eigenen Gebrauch genau das richtige ist, dann ist SwiftOCR eine wirklich starke Software. Es bringt viele interessante und potenzielle Punkte mit sich wie das erfolgreiche Auslesen trotz verschiedene Schatten oder der bereits eigebauten lernfähigen Basis. Jedoch könnte SwiftOCR noch besser und genauer beschrieben werden und die Herausforderung mit dem integrieren der Framework-Ordnerstruktur könnte auch noch um einiges vereinfacht werden. 
+Damit eignet es sich leider nicht als OCR-Lösung für dieses Projekt. 
+
+
+\section{Tesseract} 
+
+
+Auf Tesseract bin ich aufmerksam geworden, da SwiftOCR sich auf der eignen GitHub-Seite mit Tesseract vergleicht. Tesseract selbst hat bereits eine lange Entwicklungsphase hinter sich. Angefangen hatte es zwischen 1985 und 1995 bei Hewlett-Packard (HP). Danach hatte HP kein Interesse mehr daran und nach ein paar weiteren Jahren kam die Software dann 2005 zu Google, wo es als OpenSource mit der Apache-Lizenz auf SourceForge freigegeben wurde. Seit diesem Zeitpunkt fand Tesseract viele weitere Verbesserungen und Erweiterungen, unter anderem auch die Verfügbarkeit für Smartphones. So wurde für dieses Projekt \textit{Tesseract OCR iOS} als zweite Möglichkeit für die OCR-Komponente getestet. 
+
+
+Tesseract-OCR-iOS hat auf der GitHub-Seite ein eigenes Wiki, in dem auch eine Installations-Anleitung beschrieben ist. Diese ist aber nicht mehr ganz auf dem aktuellen Stand. Daher habe ich Tesseract dann in der Test-App nach einer Video-Anleitung auf YouTube aufgebaut. Brian Advent beschreibt in diesem Video die Installation von Tesseract-OCR-iOS selbst auf der Basis der Anleitung der Tesseract GitHub-Seite. 
+
+Für den Aufbau der Test-App habe ich die Basis-App als neues Projekt kopiert und darin Tesseract installiert. Dieser Schritt ist um einiges simpler als bei SwiftOCR. Denn Tesseract kann über Cocoa Pods (siehe Kapitel: Weitere verwendete Software) installiert werden. Dafür wird der Terminal auf dem Mac geöffnet und in den Projekt-Ordner der Test-App gewechselt. In diesem Ordner wird die Installation mittels Cocoa Pods mit dem Befehl \textit{init pods} initialisiert. Dieser Befehl erstellt eine Pods-Datei in dem Projekt-Ordner. Diese kann nun geöffnet und die zu installierenden Frameworks oder Erweiterungen eingetragen werden. Somit wird die Pods-Datei mit dem Befehl \textit{pod 'TesseractOCRiOS', '4.0.0'} eingetragen. Danach wird die Pods-Datei geschlossen und mit dem Befehl \textit{pods install} installiert. Nun installiert Cocoa Pods das Framework in dem Projekt und damit in der Test-App. Das dauert nur wenige Sekunden. Dann ist die Installation des Frameworks bereits abgeschlossen. Wird nun das Projekt in XCode wieder geöffnet, steht alles für den Tesseract-Test bereit. 
+
+Ich bin der Video-Anleitung weiter gefolgt und habe zuerst eine einfache Benutzeroberfläche erstellt, die lediglich ein \textit{TextView}, also ein Textfeld, enthält. Dieses gibt später den ausgelesenen Text wieder. 
+Ist das erledigt, kann das Textfeld mit dem Code verbunden werden. Nun kann der Tesseract-Code eingebaut werden. Hier war ich überrascht, dass es wie SwiftOCR lediglich ein paar einzelne Zeilen Code benötigt, bis Tesseract dann gleich verwendet werden kann. 
+
+\begin{lstlisting}
+import TesseractOCR
+
+var tesseract:G8Tesseract = G8Tesseract
+	(language:"eng+deu")
+tesseract.delegate = self
+tesseract.image = UIImage(named: "image_sample.jpg")
+tesseract.recognize()
+print(tesseract.recognizedText)
+
+\end{lstlisting}
+
+
+\newpage
+\subsection{Optionen von Tesseract-OCR-iOS}
+
+Tesseract-OCR-iOS bringt viele Einstellungs-Möglichkeiten. Unter anderem gibt es mittlerweile viele verschiedene Sprachpakete, die eingebunden werden können. Tesseract selbst bietet nach der Installation lediglich das Englisch-Sprachpaket. Alle weiteren Sprachpakete, so auch das deutsche Sprachpaket, müssen einzeln nachinstalliert werden. 
+
+Tesseract bietet bereits selbst einige Optionen, um die Bilder, die ausgelesen werden sollen, zu bearbeiten. Damit sind also Bildaufbereitungs-Funktionen gemeint. So bietet Tesseract eine Grau- oder Schwarz-Weiss-Option. Dies kann einfach hinter dem Auslese-Befehl angehängt werden. 
+
+\begin{lstlisting}
+tesseract.image = UIImage
+	(named: "b_1_q_0_p_0_2")?.g8_blackAndWhite()
+\end{lstlisting}
+
+Für dieses Projekt habe ich mich allerdings dagegen entschieden und dafür als Alternative OpenCV (siehe Kapitel: "OpenCV") gewählt. Der Grund ist, dass die Bildaufbereitungs-Funktionen relativ begrenzt sind und nur mit dem direkten Auslese-Befehl verwendet werden können. So können diese Bildaufbereitungs-Funktionen von Tesseract nicht noch mit weiteren externen Bildaufbereitungs-Funktionen kombiniert werden. 
+
+Ein wichtiger Teil, der für dieses Projekt eine grosse Steigerung in der Ausleserate brachte, ist die sogenannte \textit{Page Segmentation Method}. Das bedeutet, Tesseract kann verschiedene Text-Formate auslesen. Für Tesseract ist es ein Unterschied, ob es einen mehrzeiligen Text oder nur ein Wort in einem Bild auslesen muss. Dafür hat Tesseract verschiedene Auslesetechniken. In der Regel versucht Tesseract den Unterschied bzw. das in dem Bild vorliegende Textformat selbst zu erkennen. Da es in dieser App aber nur um Kassenzettel geht, kann Tesseract auf das für diesen Fall passendste Format angepasst werden. Das steigert in diesem Fall enorm die Ausleserate, da so immer das richtige Textformat verwendet wird.  
+
+\newpage
+\section{git}
+
+Bei der Versionsverwaltung habe ich mich für Git entschieden. Hauptsächlich hatte ich mich für Git entschieden, da es bereits im 5. Semester im Unterricht von Herrn Tanner Thema war und wir damit gearbeitet haben. Zuvor hatte ich noch keinen Umgang mit solchen Versionsverwaltungs-Programmen. Mir war immer bewusst, dass diese ein Hauptbestandteil bei der Softwareentwicklung sind. Daher war mir gleich zu Beginn dieser Diplomarbeit bewusst, dass ich auf eine Versionsverwaltung setze.
+
+Zu Beginn hatte ich noch mit dem GitHub-Desktop Programm gearbeitet. Dies hat mir den Einstieg noch etwas weiter vereinfacht. Schnell habe ich jedoch festgestellt, dass im diesem GitHub-Desktop Kleinigkeiten gegenüber des Managements von Git über den Terminal fehlen. Zum Beispiel ist die Übersicht der Datenraten-Übertragung im Terminal ersichtlich, die im GitHub-Desktop gefehlt hatte. Da ich aber später auf git lfs setzen musste und das im GitHub-Desktop nicht unterstützt war, bin ich dann auf das Management im Terminal übergegangen. 
+
+\subsection{git lfs}
+Bei dem Pushen der fertigen Test-App mit dem Foto-Stitchen auf mein GitHub-Repository musste ich feststellen, dass das beinhaltete OpenCV2-Framework, welches in der App enthalten sein muss, nicht auf GitHub gepusht werden konnte, weil das Framework mit 250MB das 100MB-Limit von GitHub-Dateien überschritt. Das Problem hierbei ist nun, dass das in der App eingebaute Framework schnell Probleme macht, sobald es mal aus der Ordnerstruktur herausgenommen und wieder eingebaut wird. Daher musste ich hier eine Lösung finden, wie ich die Test-App (Stitching) trotz des grossen Frameworks am besten in einer Projektstruktur auf mein GitHub-Repository bringen kann. 
+
+Hier hat Git glücklicherweise bereits seit längerer Zeit ein passendes OpenSource-Projekt dafür integriert. Es nennt sich \textit{git-lfs}. lfs steht hierbei für \textit{Large file system}. Git LFS lagert grosse Dateien, die auf GitHub gepusht werden möchte, in einen Remote-Server von GitHub. Dabei spielt es keine Rolle welche Datei-Typen das. Es können auch ganze Ordner mit dem Git lfs genutzt werden. Im eigenen Repository wird dann an Stelle der grossen Datei ein Text-Pointer erstellt, der auf die ausgelagerte Datei auf dem Remote-Server verweist. Beim Klonen oder herunterladen des Repositorys wird die ausgelagerte Datei zusätzlich heruntergeladen und an die Stelle des Text-Pointers gesetzt. 
+
+\begin{figure}[!htb]
+  \centering
+     \includegraphics[width=0.7\textwidth]{git-lfs-aufbau.png}
+  \caption{git lfs Ablauf}
+  \label{fig:Bild1}
+\end{figure}
+
+
+
+Für die Installation und Verwendung bin ich der Anleitung der git lfs-Seite gefolgt (https://git-lfs.github.com). Hier habe ich als ersten Schritt das Paket heruntergeladen und bin dem beinhalteten README.txt gefolgt. Dieser nach zu folge habe ich das \textit{git lfs}-Paket zuerst mit \textit{Homebrew} auf meinem MacBook über den Terminal installiert. Danach musste ich das git-lfs noch mit dem Befehl \textit{git lfs install} auf meinem MacBook aus dem Paket heraus installieren. 
+
+Ist das erledigt, habe ich mit dem Befehl \textit{git lfs track *.framework} dem installierten git mitgeteilt, dass es jede framework-Datei, die mit .framework endet, mit dem \textit{lfs} auf mein GitHub-Repository pushen soll. Das hat aber nicht gleich funktioniert. Danach habe ich festgestellt, dass die Datie opencv.framwork gar keine Datei, sondern ein Ordner ist. So habe ich den Befehl für git lfs erweitert, dass git lfs mit dem Befehl \textit{git lfs track opencv.framework/} den Ordner mit dem kompletten Inhalt auf das Repository pusht. Dies hat jedoch erneut nicht auf Anhieb funktioniert. Nach einer langen Suche in verschiedensten Foren bin ich dann auch die Lösung gestossen, die für mich funktionierte. Ich muss den Ordner mit dem Befehl \textit{git lfs track opencv.framework/**} angeben. Damit konnte ich den Ordner erfolgreich auf mein GitHub-Repository laden. 
+
+Git lfs ist eine gute Lösung für das Problem mit zu grossen Dateien. Allerdings bringt git lfs viele Herausforderungen mit sich. So muss git lfs zuerst mitgeteilt werden, welche grosse Datei oder welcher grossen Ordner auf GitHub gepusht werden möchte. Und dies muss geschehen, bevor diese Datei oder der Order sich bereits auf dem GitHub-Repository befand oder sogar ein Push-Versuch gestartet wurde. Ist die Datei bereits ohne git lfs auf das Repository gepusht worden, ergibt das die Fehlermeldung, dass doch git lfs verwendet werden soll und der Vorgang bricht ab, wie bereits beschrieben. Nun steht diese Datei aber als Fehlgeschlagener Push in den Log-Dateien von Git und kann damit nachträglich nicht mehr mit git lfs auf das Repository gepusht werden. Dafür müssen die Log-Dateien gelöscht werden. Dann kann ein neuer Versuch mit git lfs erfolgreich gestartet werden.  
+
+
+\section{Festgestellte Probleme}
+\subsection{Die richtige Perspektive}
+
+Die richtige Perspektive entscheidet über den Erfolg oder das Scheitern des Auslesens. Hier ist es also wichtig, den Winkel des Kassenzettels auf dem Bild so zu ändern, dass der Kassenzettel genau horizontal und vertikal ausgerichtet ist und soweit wie möglich parallel zum Handy gehalten wird, damit der komplette Kassenzettel auf dem Foto abgebildet wird. 
+
+Hier gibt es Funktionen, die diese Perspektive anpassen können. Diese Funktion ist bereits in sogenannten \textit{Document-Scanner}-Apps enthalten. So können Dokumente auf dem Schreibtisch fotografiert werden, ohne gross auf die eben angesprochenen vertikalen und horizontalen Punkte zu achten. 
+
+Hierfür gibt es zwei Möglichkeiten zur Verwendung dieser Technik. Zum einen gibt es Software wie diese von OpenCV, bei der der Benutzer manuell die Eckpunkte auswählen muss, aus denen dann die Perspektive transformiert wird. 
+Dies empfinde ich aber als nicht sehr Benutzerfreundlich für eine App. Denn schliesslich möchte man nur schnell den Kassenzettel fotografieren und dann sollte eigentlich alles weitere automatisch ablaufen, sodass dann gleich die Werte ausgelesen und auf der Benutzeroberfläche bereitgestellt werden. Hier möchte der Benutzer nicht noch lange Zeit für die Transformation der Perspektive aufwende. 
+
+Hier gibt es in der Zwischenzeit auch Software bzw. Frameworks, die die Anwahl der Ecken automatisch erkennt und damit die Perspektive automatisch nach gewissen Algorithmen berechnen und ausführen kann. Leider konnte dies in diesem Projekt nicht realisiert werden. Das automatische Erkennen und Ausführen dieser Transformation ist in der Regel nicht kostenlos und steht damit nicht zur Auswahl für dieses Projekt. Natürlich ist so etwas im Internet auch als OpenSource erhältlich. Die OpenSource-Perspective-Transformation-Frameworks die ich mir aber angeschaut habe, hatte die Transaktion bei Kassenzetteln nicht zuverlässig verarbeiten können. 
+
+Für eine produktive App ist die Transformation der Perspektive aber sicherlich ein wichtiger Punkt, so müssen Kassenzettel nicht komplett parallel zum Handy und auch nicht vertikal und horizontal ausgerichtet werden. Dies würde die Benutzerfreundlichkeit und auch die Produktivität der App steigern. 
+
+
+\subsection{Nach einem Grosseinkauf}
+
+Für dieses Projekt habe ich von meiner Familie und Freunden viele verschiedene Kassenzettel sammeln lassen. Da waren  auch sehr lange Kassenzettel dabei. Bei diesen Kassenzetteln bin ich auf ein Problem gestossen. 
+
+Die App ist mit Tesseract bisher so ausgelegt, dass ein Kassenzettel komplett auf einem Foto abgebildet wird. Wird aber ein langer Kassenzettel so fotografiert, dass dieser komplett auf ein Foto passt, ist die Schrift zu klein für Tesseract. Hier ist mir nach langen Überlegungen lediglich die Panorama-Funktion des iPhones eingefallen. Damit kann durch das Ziehen des iPhones ein Panoramabild erstellt werden. Auch Herr Tanner hatte diese Idee. Leider war nach den ersten direkten Tests mit der Panorama-Funktion nicht viel positives festzustellen. Um ein erfolgreiches Bild mittels der Panorama-Funktion erstellen zu können, benötigt es eine absolut ruhige Hand, damit das Handy komplett parallel zum Kassenzettel abgefahren werden kann. Ist dies nicht der Fall, gibt es im Panoramabild Verzerrungen, wie sich auch bei allen Tests zeigte. Das ist absolut nicht benutzerfreundlich und auch nicht produktiv. 
+
+Nach einer langen Suche im Internet bin ich auf die sogenannte \textit{Stitching}-Funktion gestossen. Dies ist die passende Lösung für dieses Problem. Im folgenden Kapitel ist dies genauer beschrieben.
+
+\section{OpenCV und Stitching}
+\subsection{OpenCV}
+Beim Stitching werden mehrere Fotos zu einem Panoramabild zusammen \textit{gestitcht}. Dafür müssen sich die Fotos in einem gewissen Teil überschneiden. In diesen Überschneidungen werden dann besondere Punkte, also spezielle Pixel-Kombinationen, in beiden Bildern in den überschneidenden Bereichen gesucht und mittels diesen Punkten zusammengefügt (im nachfolgenden Bild sind diese Punkte in beiden Bildern bereits ermittelt und durch grüne Striche  dargestellt). An diesen Punkten werden die beiden Bilder danach \textit{zusammengenäht}. Dies funktioniert auch bei langen Kassenzetteln.
+
+\begin{figure}[!htb]
+  \centering
+     \includegraphics[width=0.7\textwidth]{bryce_match_01.jpg}
+  \caption{Stitching-Technik}
+  \label{fig:Bild2}
+\end{figure}
+
+Herr Tanner hat mir in einer Präsentation zu einem Zwischenstand, als ich gerade den Punkt der Bildaufbereitungsmöglichkeiten angesprochen hatte, zwei Bildbearbeitungs-Frameworks empfohlen. Eines davon war OpenCV. Da OpenCV bereits eine Stitching-Funktion enthält, habe ich mich für dieses Framework entschieden. 
+
+Da ich das Problem der langen Kassenzettel bisher als kritisch für die App gesehen hatte, wollte ich dieses unbedingt lösen. Die Lösung war hierfür dann die Stitching-Funktion von OpenCV. Dies habe ich wieder in einer Test-App eingebaut, die auch auf der Basis-App aufgebaut wird. 
+
+Auf GitHub ist ein Repository foundry/OpenCVSwiftStitch\footnote{\label{foot:1}https://github.com/foundry/OpenCVSwiftStitch}, in dem beschrieben wird, wie das Stitching mittels OpenCV in ein Swift-Projekt inkludiert werden kann. Dies startet mit der Installation von OpenCV mittels Cocoa Pods. Leider musste ich feststellen, dass dies nicht erfolgreich war. Wahrscheinlich war die OpenCV-Cocoa Pods-Datei defekt. So konnte ich das OpenCV nicht mittels Cocoa Pods in die Test-App einbinden. Daher habe ich es nach einer weiteren Anleitung im Internet manuell eingebunden\footnote{\label{foot:1}https://medium.com/@yiweini/opencv-with-swift-step-by-step-c3cc1d1ee5f1}. 
+
+Die Integration von OpenCV bringt allerdings eine gewisse Schwierigkeit mit sich. OpenCV ist in C++ geschrieben. Vor der Einführung von Swift war die Verwendung von OpenCV in einer iOS App, die mit Objective-C geschrieben war, kein Problem. Objective-C ist als Erweiterung zu der Programmiersprache C erstellt worden. Da auch C++ auf der Programmiersprache C basiert, konnte Objective-C mit C++ zusammen genutzt werden. Swift basiert zwar auf Objective-C, kann aber C++-Code nicht direkt verarbeiten. Dafür benötigt es eine gemischte Form von Objective-C und C++, dem sogenannten Objective-C++. Nun ist noch ein weiterer sogenannter \textit{Bridging Header} nötig. Dieser vermittelt zwischen dem Swift-Teil und dem Objective-C++ Teil. Das folgende Bild veranschaulicht das nochmal, wobei auf diesem Bild der \textit{Bridging Header} nicht abgebildet ist. 
+
+\begin{figure}[!htb] 
+  \centering
+     \includegraphics[width=0.7\textwidth]{opencv-system-aufbau.png}
+  \caption{Aufbau zwischen Swift und OpenCV}
+  \label{fig:Bild3}
+\end{figure}
+
+Auf die Test-App bezogen bedeutet das nun, dass die OpenCVWrapper.h und OpenCVWrapper.mm die Objective-C++-Dateien sind. In diesen werden die OpenCV-Funktionen erstellt. Über den Bridging-Header können die OpenCV-Funktionen aus den OpenCVWrapper-Dateien in den Swift-Dateien verwendet werden. 
+
+Um zu testen, ob das OpenCV komplett verwendet werden kann, habe ich als Beispiel eine der OpenCV-Funktionen verwendet bzw. aufgebaut. Die Funktion soll ein farbiges Bild in ein Schwarz-Weiss-Bild umwandeln. Der Code im OpenCVWrapper sieht wie folgt aus:
+
+\begin{lstlisting}
++(UIImage *) makeGrayFromImage:(UIImage *) image{
+    
+	// Create a variable from type cv::Mat
+	cv::Mat imageMat;
+	// Convert an UIImage to a cv::Mat
+	UIImageToMat(image, imageMat);
+	// Create new variable from type cv::Mat
+	cv::Mat grayMat;
+	// Convert the color from source imageMat 
+	// to target grayMat
+	cv::cvtColor(imageMat, grayMat, CV_BGR2GRAY);
+    
+	//Return the converted image as 
+	return MatToUIImage(grayMat);
+}
+\end{lstlisting}
+
+Diese Funktion kann nun über den Bridging Header im photoViewController.swift mit folgendem Code aufgerufen werden:
+
+\begin{lstlisting}
+// The variable takenPhoto get the taken photo from 
+// the ViewController.swift
+var takenPhoto:UIImage?
+// The function makeGreyFromImage from OpenCVWrapper 
+// called with the taken Photo and set to the imageView
+imageView.image = OpenCVWrapper
+	.makeGray(from: takenPhoto)
+
+\end{lstlisting}
+
+Diese Funktion kann nun verwendet werden. Damit ist OpenCV erfolgreich in die iOS-App integriert. 
+
+\subsection{Stitching}
+Für die Implementierung der Stitching-Funktion kann nun in der Anleitung des GitHub-Repositorys von foundry/OpenCVSwiftStitch\footnote{\label{foot:1}https://github.com/foundry/OpenCVSwiftStitch}, nach der Installation von OpenCV, fortgefahren werden. 
+Um nun die Stitching-Funktion einwandfrei in die App einzubauen, habe ich die dafür nötigen sechs Dateien von foundry/OpenCVSwiftStitch in mein Projekt kopiert. Das sind in diesem Fall UIImage+OpenCV.h/-.mm, UIImage+Rotate.h/-.mm und stitching.h/-.cpp. Zusätzlich musste noch folgende Funktion in das  ViewController.swift eingebunden werden:
+
+\begin{lstlisting}
+// original function name without parameter
+// func stitch() { 
+// function name with additional parameter
+func stitch(arrayParam:[UIImage?]) {
+	DispatchQueue.global().async {
+           
+	/*
+	let image1 = UIImage(named:"pano_19_16_mid.jpg")
+	let image2 = UIImage(named:"pano_19_20_mid.jpg")
+	let image3 = UIImage(named:"pano_19_22_mid.jpg")
+	let image4 = UIImage(named:"pano_19_25_mid.jpg")
+	let imageArray:[UIImage?] = [image1,image2,image3
+		,image4]
+	*/
+           
+	let imageArray:[UIImage?] = arrayParam
+            
+	let stitchedImage:UIImage = OpenCVWrapper.process
+		(with: imageArray as! [UIImage]) as UIImage
+            
+	DispatchQueue.main.async {
+		NSLog("stichedImage %@", stitchedImage)
+		let imageView:UIImageView = UIImageView.init
+			(image: stitchedImage)
+		self.imageView = imageView
+		self.scrollView.addSubview(self.imageView!)
+		self.scrollView.backgroundColor = UIColor.black
+		self.scrollView.contentSize = self.imageView!
+			.bounds.size
+		self.scrollView.maximumZoomScale = 4.0
+		self.scrollView.minimumZoomScale = 0.5
+		self.scrollView.delegate = self as? 
+			UIScrollViewDelegate
+		self.scrollView.contentOffset = CGPoint(x: 
+			-(self.scrollView.bounds.size.width 
+			- self.imageView!.bounds.size.width)/2.0, y: 
+			-(self.scrollView.bounds.size.height 
+			- self.imageView!.bounds.size.height)/2.0)
+		NSLog("scrollview \(self.scrollView.contentSize)")
+		//self.spinner.stopAnimating()
+	}
+	}
+}
+\end{lstlisting}
+ 
+An diesem Punkt ist das Stitching erfolgreich in die App eingebaut und funktioniert mit den manuell eingebauten Bildern erfolgreich. Dafür wird ein UIIMage-Array (imageArray) aus diesen Bilder erstellt, die dann in dieser Funktion zusammen gestitcht werden. 
+Für einen dynamischeren Test habe ich die Benutzeroberfläche und die Funktion stitch() noch etwas angepasst. Mein Ziel war es, dass der Funktion stitch() nicht manuell im Code Bilder übergeben werden, sondern dass diese Bilder von der Benutzeroberfläche ausgewählt, zu einem Array zusammengestellt werden können. Dieses Array soll dann als Parameter der Funktion stitch() übergeben werden können. So habe ich im ViewController.swift ein globales UIImage Array erstellt.
+
+\begin{lstlisting}
+var imageArrayGlobal:[UIImage?] = []
+\end{lstlisting}
+
+Die Funktion stitch() habe ich mit einem Parameter eines UIImage Arrays erweitert. 
+
+\begin{lstlisting}
+func stitch(arrayParam:[UIImage?]) {
+....
+\end{lstlisting}
+
+Danach habe ich die Benutzeroberfläche geändert. Zu dem bereits bestehenden Button auf der Benutzeroberfläche aus der Basis-App, der ein Foto erstellt oder ein Foto aus der Bildergalerie öffnet, habe ich noch zwei weitere Buttons hinzugefügt. Der erste dieser zwei Buttons \textit{imageAddToStiching} fügt das von Button \textit{Photo} geöffnete Bild in das globale UIImage Array \textit{imageArrayGlobal} hinzu. So können mit dem Button \textit{Photo} mehrere Bilder ausgewählt werden und mit dem Button \textit{imageAddToStichting} nach jedem ausgewählten Bild, dieses zu dem Array hinzugefügt werden. 
+
+Sind alle Bilder zu dem Array hinzugefügt worden, die zusammen ein Stitching-Bild ergeben sollen, übergibt der zweite neue Button \textit{imageStitching} das globale Array mit den ausgewählten Bildern der Function als Parameter. So erstellt die stitch()-Funktion dann aus dem Bilder-Array vom Parameter das gestitchte Bild.
+
+Der Aufbau hatte direkt funktioniert. Ich hatte dann die in der stitch()-Funktion direkt im Code aufgerufenen Bilder in den iPhone-Simulator gespeichert und konnte diese so dynamisch über die Benutzeroberfläche in das Array hinzufügen und der angepassten stitch()-Funktion übergeben. Das ergab auch das gestitchte Bild aus. So habe ich dann einen Test mit einem langen Kassenzettel gemacht. Von diesem habe ich vom oberen Teil des Kassenzettels ein Foto erstellt und vom unteren Teil ein Foto erstellt, so dass auf beiden Teilen ein Überschnitt der Mitte für das stitching vorhanden war. Leider hatte das nicht auf anhieb funktioniert. Nach vielen und langen Tests und der genauen Auswertung der Fehlermeldung hat sich herausgestellt, dass das Stitching bei Kassenzetteln sehr viel überschnittenen Bereich benötigt. Anders als bei Bildern von einer Landschaft, bieten Bilder eines Kassenzettels zu wenige einzigartige Punkte bzw. Pixel-Zusammenstellungen, die für das Stitching benötigt werden. 
+
+\newpage
+\section{Master App kassenzettel-management}
+Da ich mir mit dem Tesseract sicher war und das Stitching auch erfolgreich in einer Test-App eingebaut hatte, wollte ich nun eine Master-App erstellt, die auf der Basis-App aufbauend, die zwei Test-Apps von Tesseract und Stitching zusammenfügt. Auf dieser App wollte ich dann weiter aufbauen. 
+
+Dafür habe ich die Test-App von Tesseract als Basis für diese Master-App verwendet und nachträglich das OpenCV-Framework eingebaut und die erstellten bzw. geänderten Dateien aus dem Stitching-Kapitel in dieses Projekt kopiert. So musste ich lediglich die Benutzeroberfläche so anpassen, dass die der Tesseract-Test-App und die der Stitching-Test-App zusammen funktionieren. 
+
+Dieses manuelle Zusammenfügen der Test-Apps hätte ich mir mit einer konstanteren Verwendung von Git ersparen können. So hätte ich bereits die Basis-App als Master-App erstellen können und alle weiteren Test wie den SwiftOCR-, den Tesseract- und den Stitching-Test als Branch auf der Master-App im Git aufbauen können. So hätte ich im Nachhinein Git die Arbeit der Zusammenlegung der Basis-/Master-App mit einem Tesseract-Branch und danach mit einem Stitching-Branch überlassen können. Dies werde ich für die zweite Phase als grossen Lernfaktor mit einbeziehen und möchte dann die weitere Entwicklung genau so auf der nun erstellten Master-App kassenzettel-management aufbauen. 
+
+\section{Bildaufbereitungs-Funktionen - OpenCV}
+
+Im Internet sind einige Seiten zu finden, die beschreiben, wie mit verschiedenen Bildaufbereitungs-Funktionen ein Bild aufbereitet werden kann, um die Ausleserate von Tesseract zu steigern. 
+
+Tesseract-OCR-iOS bietet selbst so eine Unterseite in seinm GitHub-Repository, in dem beschrieben ist wie Bilder bearbeitet werden können. Auch OpenCV ist für die Bildaufbereitung für Tesseract als geeignete Software erwähnt. Das passt natürlich, da OpenCV bereits wegen der Stitching-Funktion eingebaut ist. 
+
+Die Seite beschreibt unter anderem, dass es hilfreich ist, den Text bzw. das Bild so zu drehen, dass der auszulesende Text genau horizontal ausgerichtet ist (siehe Kapitel: Die richtige Perspektive). Des Weiteren ist die \textit{Binarisation} ein sehr hilfreiche Bildbearbeitungs-Funktion. Diese Funktion erstellt aus dem Bild ein Schwarz-Weiss-Bild. Aus diesem Bild entfernt es dann die Grau-Stufen indem jedes Bit entweder Weiss oder Schwarz geändert wird. Diese Auswahl wird nach gewissen Algorithmen berechnet. Das bringt allerdings ein Risiko mit sich. Mit dieser Funktion werden Schatten auf einem Bild komplett in einen schwarzen Bereich verändert (siehe folgendes Bild)
+
+\begin{figure}[!h]
+  \centering
+     \includegraphics[width=0.7\textwidth]{binarisation.png}
+  \caption{Binarisation mit Schatten}
+  \label{fig:Bild4}
+\end{figure}
+
+Allerdings gibt es eine erweiterte Funktion der Binarisation. Die sogenannte \textit{Adaptive Gaussian Thresholding}. Bei dieser Funktion wird nicht nur jedes Pixel einzeln betrachtet und dann zu Schwarz oder Weiss geändert, sonder es werden auch noch die Pixel direkt nebenan miteinbezogen. Damit sind Schatten keine Herausforderung für diese Funktion und diese werden zuverlässig herausgearbeitet. Dies passt der Beschreibung nach perfekt zu den Kassenzettel-Abbildern. Dies hat sich gegen Ende des Projekts allerdings doch nicht als erfolgreiche Bildaufbereitungs-Funktion herausgestellt. Diese Funktion umrandet aber leider bei grosser bzw. dicker Schrift diese. Das erkennt Tesseract aber nicht mehr als Schrift, wodurch die \textit{Adaptive Gaussian Thresholding}-Funktion nicht geeignet dafür ist (siehe nächstes Bild). 
+
+\begin{figure}[!h]
+  \centering
+     \includegraphics[width=0.9\textwidth]{tresholdingTest11_copy.jpg}
+  \caption{Adaptive Gaussian Thresholding}
+  \label{fig:Bild5}
+\end{figure}
+
+Leider ist mir das erst sehr spät aufgefallen. Ich hatte bereits einen Vergleichstest der verschiedenen Bildaufbereitungs-Funktionen erstellt. Jedoch hatte ich den Code nicht komplett an diese neu integrierten Funktionen angepasst. Dadurch hat sich der dieser Test in jedem Testfall immer noch auf das originale Bild bezogen. Dadurch ist dieser Test nicht brauchbar und leider war nicht mehr genug Zeit, diesen Test mit den richtigen Funktionen durchführen zu können. 
+
+\section{Weitere verwendete Software}
+
+In diesem Kapitel möchte ich gewisse Software und Programm genauer beschreiben, die ich während dem Projekt als Unterstützung verwendet habe. 
+
+\subsection{Pods/CocoaPods}
+Unter anderem habe ich für die Installation von Tesseract das CocoaPods verwenden können. Cocoa Pods ist ein Dependency-Manager speziell für Swift und Objective-C und bietet mit über 47.000 Frameworks eine grosse Anzahl. Es macht die Installation von Frameworks super einfach. Mit wenigen Befehlen im Terminal auf dem Mac kann ein Framework-Pod in ein bestehendes Swift- oder Objective-C-Projekt eingebaut werden. 
+
+Leider habe ich Cocoa Pods erst beim testen von Tesseract kennenlernen dürfen. Es hat sich nämlich dann herausgestellt, dass SwiftOCR auch mittels Cocoa Pods installiert werden kann. Dies hätte mir eventuell einige Zeit bei der manuellen Installation von SwiftOCR ersparen können. 
+
+\subsection{Homebrew}
+Mit Homebrew wird, ähnlich wie bei Cocoa Pods, die Installation von freien oder quelloffenen Software-Paket vereinfacht. Damit konnte ich ohne grosse Aufwände das git lfs über den Terminal installieren. 
+
+\begin{figure}[!htb]
+  \centering
+     \includegraphics[width=1.0\textwidth]{git-lfs-install-with-homebrew2.png}
+  \caption{git lfs Installation mit HomeBrew}
+  \label{fig:Bild6}
+\end{figure}
+
+
+\section{Mock-Up}
+
+Ein Teil dieses Projekts ist ein Mock-Up mit dem Auftraggeber erstellen. Das Ziel eines solchen Mock-Ups ist es, die Anforderungen der Benutzeroberfläche in Zusammenarbeit mit dem Auftraggeber und Anwender zu ermitteln. 
+
+Zur Vorbereitung auf die Erarbeitung mit dem Auftraggeber, habe ich zuvor verschiedene Apps aus dem App-Store verglichen. Heute ist eine App erst richtig Erfolgreich und bei Kunden beliebt, wenn das Design stimmig und modern ist. Des Weiteren ist eine simple Bedienung ebenfalls ein ausschlaggebender Punkt. 
+
+Daher habe ich bei dem Vergleich verschiedenster Apps zwei herausgesucht, die zwei verschiedene aber dennoch beliebte Design darstellen. 
+Zum einen ist das die Messer-App Whatsapp. Diese stellt am unteren Ende der App eine Menü-Leiste bereit, über die verschiedene Bereiche der App erreichbar sind. Hier braucht es keine grosse Erklärung und er Anwender findet sich sofort zurecht. 
+
+Zum anderen ist da die Musik-Erkennungs-App Shazam. Diese keine Menü-Leiste, sondern drei Bereiche. Der mittlere Bereich ist der Hauptbereich, über den die hauptsächliche Funktion der Musik-Erkennung gestartet werden kann. Des Weiteren sind links und recht davon jeweils ein Button, über die der linke bzw. rechte Bereich gewechselt werden kann. Das ist nicht so simpel aufgebaut wie bei Whatsapp, dennoch nach wenigen Versuchen der Steuerung auch kein Problem mehr.
+  
+\begin{figure}[!h] 
+	\centering
+		\subfigure[Shazam - linker Bereich]{\includegraphics[width=0.2\textwidth]{IMG_8882.png}}\quad
+		\subfigure[Shazam - mittlerer Bereich]{\includegraphics[width=0.2\textwidth]{IMG_8880.JPG}}\quad
+		\subfigure[Shazam - rechter Bereich]{\includegraphics[width=0.2\textwidth]{IMG_8881.JPG}}\quad
+		\subfigure[Whatsapp]{\includegraphics[width=0.2\textwidth]{IMG_8883.png}}
+		\caption{Shazam und Whatsapp }
+\end{figure}
+
+Dem Auftraggeber habe ich dann diese zwei Apps als Vorschläge für die kassenzettel-management-App vorgestellt. Der Auftraggeber hat sich gleich für die Variante von Whatsapp entschieden. Bei weiteren Gesprächen haben wir dann besprochen, dass wir ein Mix aus beiden vorgestellten Apps erstellen. So haben wir uns auf drei Bereiche geeinigt, ähnlich wie bei Shazam. 
+
+\begin{figure}[!h]
+	\centering
+		\subfigure[Linker Bereich - Kamera]{\includegraphics[width=0.2\textwidth]{1_1-Screen_1.png}}\quad
+		\subfigure[Mittlerer Bereich - Home]{\includegraphics[width=0.2\textwidth]{2_1-Screen_2.png}}\quad
+		\subfigure[Rechter Bereich - Einstellungen]{\includegraphics[width=0.2\textwidth]{3_1-Screen_3.png}}
+		\caption{Mockup der kassenzettel-management-App}
+\end{figure}
+
+Diese drei Bereiche können über eine Menü-Leiste angewählt werden. Im mittleren Bereich sieht man die Übersicht des gesetzten Budges und die letzten Einkäufe, im linken Bereich kann ein neues Bild eines Kassenzettels erstellt werden und die eben erstellten Fotos zu der Stitching-Funktion hinzugefügt werden bei langen Kassenzetteln. Im rechten Bereich können Einstellungen getätigt werden wie z.B. das einstellen des monatlichen Budges, von dem dann der ausgelesene Endbetrag eines Kassenzettels verrechnet wird. Es soll dort auch die Möglichkeit geben, bereits vergangene Monate einzusehen. 
+
+
+\section{Aufgaben für die zweite Phase - Diplomarbeit}
+
+Da ich in dieser ersten Phase nicht so weit gekommen bin, wie zu Beginn des Projekts geplant hatte, habe ich das Projekt nun wie folgt aufgeteilt. In dieser ersten Phase habe ich die Bildaufbereitung erstellt und die OCR-Funktion eingebaut. Dazu wird der ausgelesene Betrag aus dem ausgelesenen Text herausgenommen. Somit soll in der zweiten Phase die Bereitstellung des ausgelesenen Betrags auf einer Benutzeroberfläche dargestellt werden. Die Benutzeroberfläche soll nach dem Mock-Up aufgebaut werden. Des Weiteren soll zwischen die Bereitstellung des ausgelesenen Endbetrags und der Benutzeroberfläche eine lokale Datenbank integriert werden. So können in dieser der Endbetrag und weitere wichtige Daten, wie der Erstell-Zeitpunkt des Kassenzettel-Abbilds, gespeichert werden. Dies könnte in einer späteren produktiven Version für eine zeitliche Analyse genutzt werden. Darüber hinaus soll noch eine Kategorisierung bereitgestellt werden, die der Benutzer manuell nach der Erstellung des Kassenzettel-Abbildes auswählen kann. Hierfür sollen wenige Grund-Kategorien wie \textit{Lebensmittel, Klamotten, Tanken} zur Verfügung stehen. 
+
+Damit habe ich mir folgende Aufteilung der zweiten Phase vorgestellt. Die genaue Planung werde ich zu Beginn der zweiten Phase aufstellen. 
+
+
+- Datenbank-Aufbau innerhalb der App (mit Schema) (6 Stunden)
+
+- Kategorien aufbauen (Benutzer muss nach dem Erstellen des Kassenzettel-Abbildes manuell eine passende Kategorie auswählen (da zum aktuellen Stand zu wenige Daten erfolgreich aus dem Kassenzettel gelesen werden können) (8 Stunden)
+
+- Ausgelesenen Text in die Datenbank pushen (4 Stunden)
+
+- Benutzeroberfläche nach dem Mockup (mit dem Auftraggeber erstellt) aufbauen (dafür eventuell externe Design-Software verwenden) (10 Stunden)
+
+- Daten aus der Datenbank und Funktionen (Photos machen und Stitching) mit der Benutzeroberfläche verbinden (8 Stunden)
+
+- Projektmanagement (Scrum) (6 Stunden)
+
+- Dokumentation (30 Stunden inkl. Korrekturlesen, etc.)
+
+- Präsentation vorbereiten (6 Stunden)
+
+
+(Bei jedem Punkt ist die Zeit aufgerundet worden für eventuell anfallende Probleme)
+
+
+
+\section{Was ich gelernt habe}
+In diesem Projekt habe ich sehr viel lernen können. Zum einen hatte ich zuvor noch nicht so viel Kontakt mit der iOS-App Erstellung. Zum anderen habe ich viel über die OCR-Technik und Bildaufbereitungs-Funktionen, speziell auch mit OpenCV, kennengelernt. Auch hatte ich zuvor noch nicht so ausführlich Git genutzt. Auch aus dem fehlgeschlagene Projekt-Management werde ich für die nächste Phase, der Diplomarbeit, meine Schlüsse ziehen. Persönlich bin ich stolz auf das, was ich in diesem Projekt erreicht habe und freue mich bereits auf die zweite Phase. 
+
+
+\section{Quellenverzeichnis}
+
+Basis der App:
+\url{https://www.youtube.com/watch?v=4CbcMZOSmEk}
+
+SwiftOCR:
+\url{https://github.com/garnele007/SwiftOCR}
+
+Tesseract:
+\url{https://de.wikipedia.org/wiki/Tesserac}
+
+\url{https://github.com/gali8/Tesseract-OCR-iOS}
+
+\url{https://www.youtube.com/watch?v=DTQ1z_8KXZo}
+
+\url{https://github.com/gali8/Tesseract-OCR-iOS/wiki/Installation}
+
+\url{https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality#page-segmentation-method}
+
+Git LFS:
+\url{https://git-lfs.github.com/}
+
+Die richtige Perspektive:
+\url{https://docs.opencv.org/3.1.0/da/d6e/tutorial_py_geometric_transformations.html}
+
+\url{https://github.com/Breta01/handwriting-ocr/blob/master/PageDetection.ipynb}
+
+\url{https://docs.opencv.org/3.1.0/da/d6e/tutorial_py_geometric_transformations.html}
+
+OpenCV und Stitching:
+\url{https://www.pyimagesearch.com/2016/01/11/opencv-panorama-stitching/}
+\url{https://medium.com/@yiweini/opencv-with-swift-step-by-step-c3cc1d1ee5f1}
+\url{https://medium.com/@borisohayon/ios-opencv-and-swift-1ee3e3a5735b}
+\url{https://docs.opencv.org/trunk/d8/d19/tutorial_stitcher.html}
+\url{https://docs.opencv.org/3.1.0/d7/d4d/tutorial_py_thresholding.html}
+\url{https://docs.opencv.org/3.1.0/d4/d13/tutorial_py_filtering.html}
+\url{https://docs.opencv.org/master/d3/def/tutorial_image_manipulation.html}
+
+Bildaufbereitung:
+\url{https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality#page-segmentation-method}
+
+\url{https://www.docs.opencv.org/master/d7/d4d/tutorial_py_thresholding.html}
+
+Homebrew:
+\url{https://brew.sh/}
+
+\url{https://de.wikipedia.org/wiki/Homebrew_(Paketverwaltung)}
+
+Mock-Up:
+\url{https://proto.io}
+
+
+\section{Bilderverzeichnis}
+
+Abbildung 1: \url{https://git-lfs.github.com/}
+
+Abbildung 2: \url{https://www.pyimagesearch.com/2016/01/11/opencv-panorama-stitching/}
+
+Abbildung 3: \url{https://medium.com/@borisohayon/ios-opencv-and-swift-1ee3e3a5735b}
+
+Abbildung 4: \url{https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality#page-segmentation-method}
+
+Abbildung 5: Selbst gemacht
+
+Abbildung 6: Selbst gemacht
+
+Abbildung 7: Selbst gemacht
+
+Abbildung 8: Selbst gemacht (\url{https://proto.io})
+
+\end{document}
+
+
+
+
+
+
+
+
+
