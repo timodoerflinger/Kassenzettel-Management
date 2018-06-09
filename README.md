@@ -1,4 +1,4 @@
-# kassenzettel-management
+# kassenzettel-management-App
 
 Das ist das github-Repository des IT-Projekts des 6. Semesters der hf-ict
 
