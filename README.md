@@ -28,3 +28,6 @@ Dies ist eine Test-App, in der das "SwiftOCR"-Framework eingebaut wurde. Das Fra
 
 tesseractTest:
 Dies ist eine Test-App, in der das "Tesseract OCR iOS"-Framwork eingebaut wurde. Das Framework ist sehr gut bei mehrzeiligem Auslesen und damit passend für dieses Projekt. Das Auslesen funktioniert nicht zu 100%. Doch die Auslese-Qualität kann mit gewissen Funktionen von Tesseract oder auch mit anderen Bildbearbeitungs-Funktionen noch aufgewertet werden. 
+
+kassenzettel-management:
+Dies ist die Master-App, die die Basis-App mit der Test-App von Tesseract und S
