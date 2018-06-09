@@ -1,1 +1,2 @@
 OpenCVImageStitching/opencv2.framework/** filter=lfs diff=lfs merge=lfs -text
+kassenzettel-management/opencv2.framework/** filter=lfs diff=lfs merge=lfs -text
